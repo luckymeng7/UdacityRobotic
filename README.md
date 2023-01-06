@@ -2,7 +2,7 @@
 This repo is for the projects in Udacity Robotics Software Engineer Nanodegree
 
 ## Project 1
-To build and 
+To build and open the project
 
 In folder project1:
 ```
