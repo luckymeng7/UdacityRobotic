@@ -10,10 +10,13 @@ $ mkdir build
 $ cd build
 $ cmake ../
 $ make
-$ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/workspace/__UdacityRobotic/project1/build/__
+$ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/workspace/UdacityRobotic/project1/build/
 ```
 
 Back to folder project1/world
 ```
-gazebo UdacityOffice
+$ cd ../world
+$ gazebo UdacityOffice
 ```
+![image](https://user-images.githubusercontent.com/19479517/211058528-cf0107c0-ba3c-4308-9b96-23c29293da22.png)
+
