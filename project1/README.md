@@ -17,4 +17,5 @@ $ gazebo UdacityOffice
 ```
 ![image](https://user-images.githubusercontent.com/19479517/211058528-cf0107c0-ba3c-4308-9b96-23c29293da22.png)
 
-![image](https://user-images.githubusercontent.com/19479517/211058815-d29efb74-ff5a-4e59-b66c-7d6ebfd9d135.png)
+![image](https://user-images.githubusercontent.com/19479517/211060758-d53a5a80-2fef-4e75-b11d-a434efd58dba.png)
+
