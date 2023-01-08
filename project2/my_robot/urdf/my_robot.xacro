@@ -2,6 +2,8 @@
 
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo" />
+
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -92,6 +94,8 @@
       </geometry>
     </visual>
 
+    <commandTopic>cmd_vel</commandTopic>
+
   </link>
 
   <link name='right_wheel'>
@@ -118,6 +122,9 @@
         <cylinder radius="0.1" length="0.05"/>
       </geometry>
     </visual>
+
+    <commandTopic>cmd_vel</commandTopic>
+
   </link>
 
   <joint type="continuous" name="left_wheel_hinge">
@@ -167,6 +174,8 @@
       <origin xyz="0 0 0" rpy="0 0 0" />
     </box_inertia>
 
+    <imageTopicName>rgb/image_raw</imageTopicName>
+
   </link>
 
   <joint type="fixed" name="camera_joint">
@@ -200,6 +209,8 @@
         <mesh filename = "package://my_robot/meshes/hokuyo.dae"/>
       </geometry>
     </visual>
+
+    <topicName>/scan</topicName>
   </link>
 
   <joint type="fixed" name="hokuyo_joint">
