@@ -14,7 +14,7 @@ $ cd /home/workspace/catkin_ws/
 $ source devel/setup.bash
 $ roslaunch ball_chaser ball_chaser.launch
 ```
-4. In a new terminal tab:
+4. In a new terminal tab (optional):
 ```
 $ cd /home/workspace/catkin_ws/
 $ source devel/setup.bash
