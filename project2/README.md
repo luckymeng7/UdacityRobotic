@@ -1,4 +1,4 @@
-# Project 2
+# Project 2: Go Chase It!
 To build and open the project: 
 
 1. clone this repo to catkin_ws/src folder
