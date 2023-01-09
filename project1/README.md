@@ -1,4 +1,4 @@
-# Project 1
+# Project 1: Build My World
 To build and open the project: 
 
 In folder project1:
