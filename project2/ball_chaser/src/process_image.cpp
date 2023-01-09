@@ -25,36 +25,44 @@ void process_image_callback(const sensor_msgs::Image img)
 
     int white_pixel = 255;
     bool ball_presence = false;
+    string ball_position = "none"; 
 
     // TODO: Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
-    // Depending on the white ball position, call the drive_bot function and pass velocities to it
-    // Request a stop when there's no white ball seen by the camera
-
-    for (int i = 0; i < img.height * img.width; i++) {
-        if (img.data[i] == white_pixel) {
+    for (int i = 0; i < img.height * img.step; i++) {
+        if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
             ball_presence = true;
 
-            if (i%img.height <= img.width/3) // left
+            if (i%img.step <= img.step/3) // left
             {
-                drive_robot(0, 0.5);
-            } else if (i%img.height <= 2*img.width/3) // forward
+                ball_position = "left";
+            } else if (i%img.step <= 2*img.step/3) // forward
             {
-                drive_robot(0.5, 0);
+                ball_position = "forward";
             } else // right
             {
-                drive_robot(0, -0.5); 
+                ball_position = "right";
             }
             
             break;
         }
     }
     
-    if (ball_presence == false) {
+    // Depending on the white ball position, call the drive_bot function and pass velocities to it
+    // Request a stop when there's no white ball seen by the camera
+    if (ball_position == "left")
+    {
+        drive_robot(0, 0.5); // turn left
+    } else if (ball_position == "forward")
+    {
+        drive_robot(0.5, 0); // move forward 
+    } else if (ball_position == "right")
+    {
+        drive_robot(0, -0.5); // turn right
+    } else {
+        // ball_position == "none"
         drive_robot(0, 0); // stop
     }
-        
-
 }
 
 int main(int argc, char** argv)
