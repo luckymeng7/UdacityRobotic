@@ -1,8 +1,6 @@
 #include "ros/ros.h"
 #include "ball_chaser/DriveToTarget.h"
 #include <sensor_msgs/Image.h>
-#include <string>
-using namespace std;
 
 // Define a global client that can request services
 ros::ServiceClient client;
@@ -25,44 +23,40 @@ void process_image_callback(const sensor_msgs::Image img)
 
     int white_pixel = 255;
     bool ball_presence = false;
-    string ball_position = "none"; 
+    int white_pixel_num = 0;
 
     // TODO: Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
-    for (int i = 0; i < img.height * img.step; i++) {
+    // Depending on the white ball position, call the drive_bot function and pass velocities to it
+    // Request a stop when there's no white ball seen by the camera
+    for (int i = 0; i < img.height * img.step; i=i+3) {
         if (img.data[i] == white_pixel && img.data[i+1] == white_pixel && img.data[i+2] == white_pixel) {
-            ball_presence = true;
-
-            if (i%img.step <= img.step/3) // left
-            {
-                ball_position = "left";
-            } else if (i%img.step <= 2*img.step/3) // forward
-            {
-                ball_position = "forward";
-            } else // right
-            {
-                ball_position = "right";
-            }
             
-            break;
+          	if (ball_presence == false) {
+              ball_presence = true;
+
+              // Moving direction based on the first white pixel found
+              if (i%img.step <= img.step/3) // left
+              {
+                  drive_robot(0, 0.5); // turn left
+              } else if (i%img.step <= 2*img.step/3) // forward
+              {
+                  drive_robot(0.5, 0); // move forward 
+              } else // right
+              {
+                  drive_robot(0, -0.5); // turn right
+              }
+            } 
+          
+            white_pixel_num++;
         }
     }
     
-    // Depending on the white ball position, call the drive_bot function and pass velocities to it
-    // Request a stop when there's no white ball seen by the camera
-    if (ball_position == "left")
-    {
-        drive_robot(0, 0.5); // turn left
-    } else if (ball_position == "forward")
-    {
-        drive_robot(0.5, 0); // move forward 
-    } else if (ball_position == "right")
-    {
-        drive_robot(0, -0.5); // turn right
-    } else {
-        // ball_position == "none"
-        drive_robot(0, 0); // stop
+    // Stop moving when ball is not seen or too close 
+  	if (ball_presence == false or white_pixel_num > img.height*img.width/10) {
+      drive_robot(0, 0); // stop
     }
+    
 }
 
 int main(int argc, char** argv)
