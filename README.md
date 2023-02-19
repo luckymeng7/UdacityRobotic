@@ -6,3 +6,6 @@ Details for [Project 1](https://github.com/luckymeng7/UdacityRobotic/blob/main/p
 
 ## Project 2: Go Chase It!
 Details for [Project 2](https://github.com/luckymeng7/UdacityRobotic/blob/main/project2/)
+
+## Project 2: Where am I?
+Details for [Project 3](https://github.com/luckymeng7/UdacityRobotic/blob/main/project3/)
