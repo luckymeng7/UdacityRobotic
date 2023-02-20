@@ -18,7 +18,9 @@ $ source devel/setup.bash
 $ roslaunch my_robot amcl.launch
 ```
 
-![image](https://user-images.githubusercontent.com/19479517/219980517-bdac7c40-f8ba-4c83-8afd-4458162a5164.png)
+Screenshot of localized robot in RViz
+![image](https://user-images.githubusercontent.com/19479517/220170639-30748e38-b1d4-4346-a202-5d76b3a3e775.png)
+
 
 
 
