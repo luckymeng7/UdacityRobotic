@@ -1,6 +1,6 @@
-# Project 3: Where am I?
+# Project 4: Map My World
 
-This project is built based on project 2
+This project is continued from project 1 & 2 & 3
 
 To build and open the project: 
 
