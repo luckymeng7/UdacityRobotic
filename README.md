@@ -7,5 +7,8 @@ Details for [Project 1](https://github.com/luckymeng7/UdacityRobotic/blob/main/p
 ## Project 2: Go Chase It!
 Details for [Project 2](https://github.com/luckymeng7/UdacityRobotic/blob/main/project2/)
 
-## Project 2: Where am I?
+## Project 3: Where Am I?
 Details for [Project 3](https://github.com/luckymeng7/UdacityRobotic/blob/main/project3/)
+
+## Project 4: Map My World
+Details for [Project 4](https://github.com/luckymeng7/UdacityRobotic/blob/main/project4/)
