@@ -54,7 +54,7 @@
         <cameraName>camera</cameraName>
         <imageTopicName>rgb/image_raw</imageTopicName>
         <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-        <frameName>camera_link_optional</frameName>
+        <frameName>camera_link_optical</frameName>
 
         <depthImageTopicName>depth/image_raw</depthImageTopicName>
         <pointCloudTopicName>depth/points</pointCloudTopicName>
