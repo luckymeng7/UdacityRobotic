@@ -12,3 +12,6 @@ Details for [Project 3](https://github.com/luckymeng7/UdacityRobotic/blob/main/p
 
 ## Project 4: Map My World
 Details for [Project 4](https://github.com/luckymeng7/UdacityRobotic/blob/main/project4/)
+
+## Project 5: Home Service Robot
+Details for [Project 5](https://github.com/luckymeng7/UdacityRobotic/blob/main/project5/)
