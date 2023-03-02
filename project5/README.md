@@ -17,6 +17,13 @@ $ ./test_slam.sh
 ```
 $ ./test_navigation.sh
 ```
+6. To run the home service robot, which will travel to pick up zone, pick virtual object up and then travel to drop off zone, drop off the virtual object
+```
+$ ./home_service.sh 
+```
 
 Reference for Sending Goals to the Navigation Stack: 
 http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
+
+Reference for Modeling Virtual Objects:
+http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Basic%20Shapes
