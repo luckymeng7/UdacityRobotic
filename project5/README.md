@@ -22,6 +22,8 @@ $ ./test_navigation.sh
 $ ./home_service.sh 
 ```
 
+### Note: the following screenshots were captured to show the concept, they were not captured in one run. The printed message may be mis-aligned between screenshots
+
 ### Come to pick up zone and picking up the virtual object
 ![image](https://user-images.githubusercontent.com/19479517/222339692-2edd8fa6-ef56-4735-8ad3-d13183227a3c.png)
 
