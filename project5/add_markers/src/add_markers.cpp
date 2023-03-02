@@ -1,20 +1,39 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
+#include <std_msgs/String.h>
+
+// Define a global subscriber to listen to robot status
+ros::Publisher marker_pub;
+visualization_msgs::Marker marker;
+
+void modify_marker_callback(const std_msgs::String msg)
+{
+  if (msg.data == "pick_up") {
+    marker.action = visualization_msgs::Marker::DELETE;
+    marker_pub.publish(marker);
+    ROS_INFO("Virtual object is picked up");
+  } else if (msg.data == "drop_off") {
+    marker.pose.position.x = -2.0;
+    marker.pose.position.y = 2.5;
+    marker.action = visualization_msgs::Marker::ADD;
+    marker_pub.publish(marker);
+    ROS_INFO("Virtual object is dropped off");
+  } else {
+    ROS_ERROR("Invalid message received! The message should be either pick_up or drop_off!");
+  }
+}
 
 int main( int argc, char** argv )
 {
   ros::init(argc, argv, "add_markers");
   ros::NodeHandle n;
   ros::Rate r(1);
-  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1, true);
+  
+  marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1, true);
 
   // Set our initial shape type to be a cube
   uint32_t shape = visualization_msgs::Marker::CUBE;
 
- 
-////// Publish the 1st marker at pickup zone ///////////
-
-    visualization_msgs::Marker marker;
     // Set the frame ID and timestamp.  See the TF tutorials for information on these.
     marker.header.frame_id = "map";
     marker.header.stamp = ros::Time::now();
@@ -52,23 +71,13 @@ int main( int argc, char** argv )
 
     marker.lifetime = ros::Duration();    
     
-    ROS_INFO("Marker appears at the pickup zone");
+    ROS_INFO("Virtual object appears at the pickup zone");
     marker_pub.publish(marker);
-    ros::Duration(5.0).sleep();
 
-    marker.action = visualization_msgs::Marker::DELETE;
-    marker_pub.publish(marker);
-    ROS_INFO("Marker is hidden");
-    ros::Duration(5.0).sleep();
+    ros::Subscriber robot_loc_sub = n.subscribe("/pick_objects/robot_location", 1, modify_marker_callback);
 
-    // Set new pose of the marker.
-    marker.pose.position.x = -2;
-    marker.pose.position.y = 2.5;
-    marker.action = visualization_msgs::Marker::ADD;
-    marker_pub.publish(marker);
-    ROS_INFO("Marker appears at the drop off zone");
-    ros::Duration(20.0).sleep();
-
+    ros::spin();
+    return 0;
     
  
 }
