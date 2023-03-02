@@ -22,6 +22,16 @@ $ ./test_navigation.sh
 $ ./home_service.sh 
 ```
 
+### Come to pick up zone and picking up the virtual object
+
+### Arrive pick up zone and virtual object picked up
+
+### Move to drop off zone
+
+### Arrive drop off zone and drop off virtual object
+
+
+
 Reference for Sending Goals to the Navigation Stack: 
 http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
 
