@@ -20,3 +20,6 @@ $ ./test_navigation.sh
 
 Reference for Sending Goals to the Navigation Stack: 
 http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals
+
+Reference for Modeling Virtual Objects:
+http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Basic%20Shapes
